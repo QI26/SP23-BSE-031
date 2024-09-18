@@ -1,0 +1,258 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.blackSlide {
+    padding-top: 0.15em;
+    background-color: black;
+    color: white;
+    text-align: center;
+    min-height: 1.5em;
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4f4f4;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.1em;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    flex: 1;
+}
+
+header ul {
+    display: flex;
+    padding: 0.15em;
+    margin: 0.05em;
+    list-style-type: none;
+    flex: 2;
+    justify-content: flex-end;
+}
+
+header ul li {
+    margin-right: 1.5em;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.backToSchool {
+    color: white;
+    background-color: green;
+    border-radius: 5em;
+    font-size: 1em;
+    font-weight: bold;
+    width: 9em;
+    padding: 0.15em;
+    position: relative;
+    z-index: 3;
+    bottom: 1.5em;
+    right: 30em;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.special {
+    color: red;
+}
+
+.symbol img {
+    width: 2em;
+    padding: 0.5em;
+}
+
+.symbol img:hover {
+    width: 2.5em;
+}
+
+.banner {
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.category {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.menImg,
+.womenImg,
+.bagImg,
+.kidsImg {
+    width: 300px;
+    height: 290px;
+    object-fit: cover;
+}
+
+
+.newImg {
+    width: 570px;
+    height: 630px;
+    object-fit: cover;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.footer {
+    background-color: #f4f4f4;
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1;
+    margin-right: 20px;
+    min-width: 200px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.footer-col ul li .logo {
+    width: 30px;
+}
+
+.footer-col ul li img {
+    width: 36px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.footer-col ul li a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #000;
+}
+
+.footer-col ul li strong {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-col ul li form {
+    display: flex;
+    align-items: center;
+}
+
+.footer-col ul li form input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 250px;
+}
+
+.footer-col ul li form button {
+    padding: 10px 15px;
+    background-color: navy;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.footer-col ul li form button:hover {
+    background-color: #444;
+}
+
+.followOn {
+    width: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.followOn:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-col {
+        margin-bottom: 30px;
+    }
+
+    .footer-col ul li form input[type="email"] {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .footer-col ul li form button {
+        width: 100%;
+    }
+}
+
+.copyright {
+    color: gray;
+    font-weight: light bold;
+    padding: 5%;
+}
