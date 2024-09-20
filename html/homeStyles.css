@@ -99,8 +99,16 @@ main {
     font-weight: bold;
     margin-bottom: 20px;
 }
-
-
+.menWomen{
+    display: flex;
+    flex-direction: column;
+    gap :20px;
+}
+.bagKids{
+    display: flex;
+    flex-direction: column;
+    gap :20px;
+}
 .menImg,
 .womenImg,
 .bagImg,
@@ -123,6 +131,11 @@ main {
     padding: 0;
     box-sizing: border-box;
 }
+
+.sandalImg{
+    width: 300px;
+}
+
 
 body {
     font-family: 'Arial', sans-serif;
