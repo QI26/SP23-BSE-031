@@ -249,7 +249,9 @@ main {
 }
 .bagsCollection img{
     width : 70%;
-    padding-left: 250px;
+    padding-left: 500px;
+    position: relative;
+    bottom: 190px;
 }
 
 body {
