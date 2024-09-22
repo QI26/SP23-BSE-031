@@ -183,12 +183,12 @@ main {
 
 .product-card {
     background-color: #f7f7f7;
-    padding: 15px; /* reduce padding */
-    flex: 1 1 calc(20% - 10px); /* reduced width */
-    max-width: calc(20% - 10px); /* reduced width */
+    padding: 15px;
+    flex: 1 1 calc(20% - 10px);
+    max-width: calc(20% - 10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-  }
+}
 
 .product-card img {
     width: 100%;
@@ -206,52 +206,66 @@ main {
     font-weight: bold;
     color: #333;
 }
-.shop-by-collection h2{
+
+.shop-by-collection h2 {
     justify-content: center;
     text-align: center;
     padding-bottom: 50px;
+    padding-top: 50px;
 }
-.instaStyleFeed h2{
+
+.instaStyleFeed h2 {
     justify-content: center;
     text-align: center;
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.instaPosts{
+
+.instaPosts {
     display: flex;
     gap: 10px;
 }
-.instaPosts img{
-    width: 350px;
+
+.instaPosts img {
+    width: 300px;
     height: 350px;
 }
-.layout1{
+
+.layout1 {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
 }
-.girlB img{
+
+.girlB img {
     padding-left: 50px;
-    width : 250px;
-    display: inline;
+    width: 250px;
 }
-.totBaTot img{
+
+.totBaTot img {
     width: 400px;
-    height : 250px;
-}
-.digger img{
-    width : 250px;
     height: 250px;
 }
-.genZ img{
+
+.digger img {
     width: 250px;
     height: 250px;
 }
-.bagsCollection img{
-    width : 70%;
-    padding-left: 500px;
+
+.genZ img {
+    width: 250px;
+    height: 250px;
     position: relative;
-    bottom: 190px;
+    left: 30%;
+    bottom: 150px;
+}
+
+.bagsCollection img {
+    width: 45%;
+    position: relative;
+    left: 60%;
+    bottom: 400px;
 }
 
 body {
