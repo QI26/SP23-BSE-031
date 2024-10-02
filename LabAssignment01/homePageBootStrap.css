@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .marquee {
     width: 100%;
     background-color: #000000;
@@ -48,8 +52,8 @@ body {
     font-weight: bold;
     padding: 0.5em;
     margin-left: auto;
-    position : fixed;
-    top : 5em;
+    position : absolute;
+    top : 1em;
     left : 90em;
 
 }
@@ -66,5 +70,184 @@ body {
 
 
 .navbar-brand img {
-    width: 100px; /* Adjust the logo size */
+    width: 100px;
+}
+.navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar-nav .dropdown-menu {
+    margin-top: 0;
+}
+
+.dropdown-menu {
+    transition: all 0.3s ease;
+}
+
+.bi{
+    padding: 5px;
+}
+
+.banner{
+    width:100%;
+}
+.shopByCatogery{
+    font-size: 24px;
+}
+.menWomen{
+    flex-direction: column;
+}
+.bagKids{
+    flex-direction: column;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.trending-section {
+    padding: 20px;
+}
+
+.trending-title h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.trending-title .nav {
+    list-style-type: none;
+    padding: 0;
+}
+
+.trending-title .nav .nav-item {
+    margin: 0 20px;
+}
+
+.trending-title .nav .nav-link {
+    text-decoration: none;
+    color: #050709;
+    font-weight: bold;
+    padding: 5px 0;
+}
+
+.trending-title .nav .nav-link.active,
+.trending-title .nav .nav-link:hover {
+    color: #000000;
+    border-bottom: 2px solid #000000;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
+.product-grid img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+}
+
+.product-name{
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px; 
+    font-weight: 600;
+    margin-top: 10px;
+}
+.product-name:hover {
+    border-bottom: 2px solid #000000;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.shop-by-collection h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.instaStyleFeed h2 {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.instaStyleFeed {
+    margin: 0; 
+    padding: 0; 
+}
+
+
+.instaStyleFeed img {
+    width: 100%;
+    height: auto; 
+    max-width: 500px;
+    max-height: 310px; 
+    display: block; 
+}
+
+
+.footer {
+    background-color: #f9f9f9;
+}
+
+.footer h4 {
+    color: #000;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: #666;
+}
+
+.footer ul li a:hover {
+    color: #000;
+}
+
+.footer ul li img {
+    width: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.followOn {
+    width: 24px;
+    vertical-align: middle;
+}
+
+.followOn:hover {
+    opacity: 0.7;
+}
+
+.form-control {
+    border-radius: 25px;
+}
+
+.btn-primary {
+    border-radius: 25px;
+    background-color: #41337A;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #2E265A;
 }
