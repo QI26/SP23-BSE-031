@@ -1,11 +1,12 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 .marquee {
     width: 100%;
     background-color: #000000;
-    color : white;
+    color: white;
     overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box;
@@ -24,6 +25,7 @@
     0% {
         transform: translateX(0%);
     }
+
     100% {
         transform: translateX(-100%);
     }
@@ -52,9 +54,9 @@ body {
     font-weight: bold;
     padding: 0.5em;
     margin-left: auto;
-    position : absolute;
-    top : 1em;
-    left : 90em;
+    position: absolute;
+    top: 1em;
+    left: 90em;
 
 }
 
@@ -72,6 +74,7 @@ body {
 .navbar-brand img {
     width: 100px;
 }
+
 .navbar-nav .dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -84,22 +87,26 @@ body {
     transition: all 0.3s ease;
 }
 
-.bi{
+.bi {
     padding: 5px;
 }
 
-.banner{
-    width:100%;
+.banner {
+    width: 100%;
 }
-.shopByCatogery{
+
+.shopByCatogery {
     font-size: 24px;
 }
-.menWomen{
+
+.menWomen {
     flex-direction: column;
 }
-.bagKids{
+
+.bagKids {
     flex-direction: column;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -151,13 +158,14 @@ body {
     max-width: 200px;
 }
 
-.product-name{
+.product-name {
     color: #000000;
     text-decoration: none;
-    font-size: 14px; 
+    font-size: 14px;
     font-weight: 600;
     margin-top: 10px;
 }
+
 .product-name:hover {
     border-bottom: 2px solid #000000;
 }
@@ -167,11 +175,13 @@ body {
     font-weight: bold;
     color: #333;
 }
+
 .shop-by-collection h2 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
 }
+
 .instaStyleFeed h2 {
     font-size: 24px;
     font-weight: bold;
@@ -179,17 +189,17 @@ body {
 }
 
 .instaStyleFeed {
-    margin: 0; 
-    padding: 0; 
+    margin: 0;
+    padding: 0;
 }
 
 
 .instaStyleFeed img {
     width: 100%;
-    height: auto; 
+    height: auto;
     max-width: 500px;
-    max-height: 310px; 
-    display: block; 
+    max-height: 310px;
+    display: block;
 }
 
 
