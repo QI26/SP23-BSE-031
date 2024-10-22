@@ -1,0 +1,70 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.form-group label {
+    font-weight: bold;
+    color: #555;
+}
+#storyForm {
+    background-color: #f1f3f5;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.story {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.story h3 {
+    color: #333;
+    font-size: 20px;
+}
+.story p {
+    font-size: 16px;
+    color: #666;
+}
+.edit-btn, .delete-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    margin-right: 5px;
+}
+.delete-btn {
+    right: 65px;
+}
+#submitBtn, .clear-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: #e2e2e2;
+    margin: 40px 0;
+}
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
