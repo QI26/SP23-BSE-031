@@ -1,0 +1,1 @@
+Hotel Booking System This Java project allows users to search for available rooms, book hotel accommodations, and manage bookings. The system is designed to help hotel staff manage customer check-ins and check-outs, and includes customer records and billing functionalities. The system is fully object-oriented, with classes for customers, rooms, and bookings.

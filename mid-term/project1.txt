@@ -1,0 +1,1 @@
+Student Record Management System The Student Record Management System is a C++ program that allows administrators to add, update, delete, and view student records. It includes functionalities like recording student grades, personal information, and generating academic reports. The system uses file handling to store and retrieve student data.

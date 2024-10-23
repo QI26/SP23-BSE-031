@@ -1,0 +1,1 @@
+Bank Account Management System This C++ project is designed to simulate a basic banking system. It includes features like creating a new bank account, making deposits, withdrawals, and viewing transaction history. It stores user data in files and ensures that operations like balance updates and account closures are handled securely
