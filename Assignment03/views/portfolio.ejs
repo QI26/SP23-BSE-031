@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleSheet.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <h1 class="navbar-brand">My Portfolio</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 hero-content">
+                    <h2>Welcome to My Portfolio, I am</h2>
+                    <h2 id ="myName">Syed Qadr Islam</h2>
+                    <p>Here's a collection of my academic projects, categorized by semester.</p>
+                    <a href="#projects" class="btn btn-primary">Explore Projects</a>
+                </div>
+                <div class="col-md-6 hero-image">
+                    <img src="logo.jpeg" alt="My Portfolio Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2>Semester 1</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="project">
+                    <img src="proj1.jpeg" alt="Project 1" class="img-fluid">
+                    <div class="project-details">
+                        <h3>Student Record Management System</h3>
+                        <p>A system to manage student records, including adding, updating, and viewing student data.</p>
+                        <button class="btn btn-secondary" onclick="loadDescription('project1.txt', 'description1')">Show Description</button>
+                        <div id="description1" class="description"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="project">
+                    <img src="proj2.jpeg" alt="Project 2" class="img-fluid">
+                    <div class="project-details">
+                        <h3>Bank Account Management System</h3>
+                        <p>A simple banking system for creating accounts, depositing, withdrawing, and checking balances.</p>
+                        <button class="btn btn-secondary" onclick="loadDescription('project2.txt', 'description2')">Show Description</button>
+                        <div id="description2" class="description"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Semester 2</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="project">
+                    <img src="proj3.jpeg" alt="Project 3" class="img-fluid">
+                    <div class="project-details">
+                        <h3>Library Management System</h3>
+                        <p>A system to manage books, borrowers, and transaction records in a library environment.</p>
+                        <button class="btn btn-secondary" onclick="loadDescription('project3.txt', 'description3')">Show Description</button>
+                        <div id="description3" class="description"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="project">
+                    <img src="proj4.jpeg" alt="Project 4" class="img-fluid">
+                    <div class="project-details">
+                        <h3>Hotel Booking System</h3>
+                        <p>A hotel booking system for room reservation, availability checking, and customer management.</p>
+                        <button class="btn btn-secondary" onclick="loadDescription('project4.txt', 'description4')">Show Description</button>
+                        <div id="description4" class="description"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Semester 3</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="project">
+                    <img src="proj5.jpeg" alt="Project 5" class="img-fluid">
+                    <div class="project-details">
+                        <h3>Binary Search Tree Implementation</h3>
+                        <p>Implementation of a binary search tree with insertion, deletion, and traversal operations.</p>
+                        <button class="btn btn-secondary" onclick="loadDescription('project5.txt', 'description5')">Show Description</button>
+                        <div id="description5" class="description"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="project">
+                    <img src="proj6.jpeg" alt="Project 6" class="img-fluid">
+                    <div class="project-details">
+                        <h3>Graph Traversal and Shortest Path Algorithm</h3>
+                        <p>Graph traversal using BFS and DFS, with shortest path calculation using Dijkstra’s algorithm.</p>
+                        <button class="btn btn-secondary" onclick="loadDescription('project6.txt', 'description6')">Show Description</button>
+                        <div id="description6" class="description"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 footer-column">
+                    <h2 id ="about">About Me</h2>
+                    <p>I am Syed Qadr Islam, a passionate software developer and problem solver. My journey in coding started with academic projects, but my enthusiasm for programming quickly grew beyond the classroom. Over the years, I have honed my skills in creating user-friendly and efficient applications, with a focus on developing intuitive solutions that cater to real-world challenges.</p>
+                </div>
+                <div class="col-md-6 footer-column" id="contact">
+                    <h2>Contact</h2>
+                    <p>Email: qadrshah2@gmail.com</p>
+                    <p>Phone: +92 3334387695</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

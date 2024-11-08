@@ -1,0 +1,1 @@
+Library Management System The Library Management System is an OOP-based Java project that helps manage book inventories, track borrowed books, and manage borrower details. It allows users to check out, return, and search for books. Administrators can add new books, remove outdated ones, and view borrowing history.
