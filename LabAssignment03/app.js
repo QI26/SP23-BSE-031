@@ -1,14 +1,33 @@
 const express = require("express");
-let server = express();
+const mongoose = require("mongoose");
+var expressLayouts = require("express-ejs-layouts");
 
+let server = express();
 server.set("view engine", "ejs");
+server.use(expressLayouts);
 
 server.use(express.static("public"));
+server.use(express.urlencoded());
 
-server.get("/", (req, res) => {
-  res.send(res.render("bootStrapHomePage"));
+let adminProductsRouter = require("./routes/admin/products.controller");
+server.use(adminProductsRouter);
+
+server.get("/about-me", (req, res) => {
+  return res.render("about-me");
 });
 
-server.listen(5000, () => {
-  console.log(`Server Started at localhost:5000`);
+server.get("/", async (req, res) => {
+  let Product = require("./models/product.model");
+  let products = await Product.find();
+  return res.render("bootStrapHomePage", { products });
+});
+
+let connectionString = "mongodb://localhost/sp23-bse-b";
+mongoose
+  .connect(connectionString, { useNewUrlParser: true })
+  .then(() => console.log("Connected to Mongo DB Server: " + connectionString))
+  .catch((error) => console.log(error.message));
+
+server.listen(4500, () => {
+  console.log(`Server Started at localhost:4500`);
 });
