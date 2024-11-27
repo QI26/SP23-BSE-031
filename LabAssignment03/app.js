@@ -12,14 +12,15 @@ server.use(express.urlencoded());
 let adminProductsRouter = require("./routes/admin/products.controller");
 server.use(adminProductsRouter);
 
-server.get("/about-me", (req, res) => {
-  return res.render("about-me");
-});
-
+let adminCategoriesRouter = require("./routes/admin/categories.controller")
+server.use(adminCategoriesRouter);
 server.get("/", async (req, res) => {
   let Product = require("./models/product.model");
   let products = await Product.find();
-  return res.render("bootStrapHomePage", { products });
+  let Category = require("./models/category.model");
+  let categories = await Category.find();
+
+  return res.render("bootStrapHomePage", { products , categories});
 });
 
 let connectionString = "mongodb://localhost/sp23-bse-b";
@@ -28,6 +29,6 @@ mongoose
   .then(() => console.log("Connected to Mongo DB Server: " + connectionString))
   .catch((error) => console.log(error.message));
 
-server.listen(4500, () => {
-  console.log(`Server Started at localhost:4500`);
+server.listen(5000, () => {
+  console.log(`Server Started at localhost:5000`);
 });
