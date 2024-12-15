@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/homePageBootStrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Product Page</title>
+</head>
+<body>
+    <form method="GET" action="/products" class="d-flex mb-4">
+        <input type="text" name="search" class="form-control me-2" placeholder="Search for products..." value="<%= searchQuery || '' %>">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form> 
+    <div class="mb-4">
+        <% if (searchQuery) { %>
+            <h5>Showing results for "<%= searchQuery %>"</h5>
+        <% } else { %>
+            <h5>All Products</h5>
+        <% } %>
+    </div>
+<div class="container mt-4">
+    <!-- Product Cards -->
+    <div class="row">
+        <% for (let index = 0; index < products.length; index++) { %>
+            <div class="col-md-3 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="<%= products[index].imageUrls %>" class="card-img-top img-fluid" alt="<%= products[index].name %>">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-3"><%= products[index].name %></h5>
+                        <p class="card-text fs-4 text-muted"><%= products[index].price %> PKR</p>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center align-items-center mt-4">
+        <% if (currentPage > 1) { %>
+            <a href="/products?page=<%= currentPage - 1 %>" class="btn btn-primary me-2">
+                <i class="bi bi-arrow-left-circle"></i> Previous
+            </a>
+        <% } %>
+
+        <!-- Page Info -->
+        <span class="mx-3">Page <%= currentPage %> of <%= totalPages %></span>
+
+        <% if (currentPage < totalPages) { %>
+            <a href="/products?page=<%= currentPage + 1 %>" class="btn btn-primary">
+                Next <i class="bi bi-arrow-right-circle"></i>
+            </a>
+        <% } %>
+    </div>
+</div>
+
+</body>
+</html>

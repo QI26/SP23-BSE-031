@@ -1,0 +1,88 @@
+<h3><%- pageTitle %></h3>
+
+<a href="/admin/products/create" class="btn btn-info">Create New Product</a>
+
+<!-- Search Form -->
+<form method="GET" action="/admin/products" class="d-flex mb-4 mt-2">
+    <input 
+        type="text" 
+        name="search" 
+        class="form-control me-2" 
+        placeholder="Search by product name..." 
+        value="<%= searchQuery || '' %>"
+    />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Picture</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (products.length > 0) { %>
+            <% for (let product of products) { %>
+                <tr>
+                    <td><%= product._id %></td>
+                    <td><%= product.name %></td>
+                    <td><%= product.model %></td>
+                    <td><%= product.price %></td>
+                    <td><%= product.description %></td>
+                    <td>
+                        <img src="<%= product.imageUrls %>" width="100px" />
+                    </td>
+                    <td>
+                        <a href="/admin/products/edit/<%= product._id %>" class="btn btn-warning">Edit</a>
+                        <a href="/admin/products/delete/<%= product._id %>" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            <% } %>
+        <% } else { %>
+            <tr>
+                <td colspan="7" class="text-center">No products found</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<!-- Pagination Controls -->
+<nav aria-label="Pagination">
+    <ul class="pagination">
+        <% if (currentPage > 1) { %>
+            <li class="page-item">
+                <a 
+                    class="page-link" 
+                    href="?page=<%= currentPage - 1 %>&search=<%= searchQuery %>">
+                    Previous
+                </a>
+            </li>
+        <% } %>
+
+        <% for (let i = 1; i <= totalPages; i++) { %>
+            <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                <a 
+                    class="page-link" 
+                    href="?page=<%= i %>&search=<%= searchQuery %>">
+                    <%= i %>
+                </a>
+            </li>
+        <% } %>
+
+        <% if (currentPage < totalPages) { %>
+            <li class="page-item">
+                <a 
+                    class="page-link" 
+                    href="?page=<%= currentPage + 1 %>&search=<%= searchQuery %>">
+                    Next
+                </a>
+            </li>
+        <% } %>
+    </ul>
+</nav>
