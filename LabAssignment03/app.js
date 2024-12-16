@@ -23,7 +23,7 @@ server.get("/", async (req, res) => {
   return res.render("bootStrapHomePage", { products , categories});
 });
 
-let connectionString = "mongodb://localhost/sp23-bse-b";
+let connectionString = "mongodb://localhost/sp23-bse-031";
 mongoose
   .connect(connectionString, { useNewUrlParser: true })
   .then(() => console.log("Connected to Mongo DB Server: " + connectionString))

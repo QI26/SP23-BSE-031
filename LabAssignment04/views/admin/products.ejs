@@ -14,6 +14,31 @@
     <button type="submit" class="btn btn-primary">Search</button>
 </form>
 
+<!-- Filter by Category -->
+<form method="GET" action="/admin/products" class="d-flex mb-4 mt-2">
+    <select name="category" class="form-select me-2">
+        <option value="">All Categories</option>
+        <% categories.forEach(category => { %>
+            <option 
+                value="<%= category.title %>" 
+                <%= category.title === selectedCategory ? 'selected' : '' %>>
+                <%= category.title %>
+            </option>
+        <% }) %>
+    </select>
+    <button type="submit" class="btn btn-primary">Filter</button>
+    <!-- Sorting Dropdown -->
+    <select name="sort" class="form-select me-2">
+        <option value="">Sort By</option>
+        <option value="priceLow" <%= selectedSort === 'priceLow' ? 'selected' : '' %>>Price: Low to High</option>
+        <option value="priceHigh" <%= selectedSort === 'priceHigh' ? 'selected' : '' %>>Price: High to Low</option>
+        <option value="asc" <%= selectedSort === 'asc' ? 'selected' : '' %>>Alphabetical: A to Z</option>
+        <option value="desc" <%= selectedSort === 'desc' ? 'selected' : '' %>>Alphabetical: Z to A</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary">SORT</button>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -22,6 +47,7 @@
             <th>Model</th>
             <th>Price</th>
             <th>Description</th>
+            <th>Category</th>
             <th>Picture</th>
             <th>Actions</th>
         </tr>
@@ -35,6 +61,7 @@
                     <td><%= product.model %></td>
                     <td><%= product.price %></td>
                     <td><%= product.description %></td>
+                    <td><%= product.categoryId.title %></td>
                     <td>
                         <img src="<%= product.imageUrls %>" width="100px" />
                     </td>
@@ -46,7 +73,7 @@
             <% } %>
         <% } else { %>
             <tr>
-                <td colspan="7" class="text-center">No products found</td>
+                <td colspan="8" class="text-center">No products found</td>
             </tr>
         <% } %>
     </tbody>
@@ -59,7 +86,7 @@
             <li class="page-item">
                 <a 
                     class="page-link" 
-                    href="?page=<%= currentPage - 1 %>&search=<%= searchQuery %>">
+                    href="?page=<%= currentPage - 1 %>&search=<%= searchQuery %>&category=<%= selectedCategory %>&sort=<%= selectedSort %>">
                     Previous
                 </a>
             </li>
@@ -69,7 +96,7 @@
             <li class="page-item <%= i === currentPage ? 'active' : '' %>">
                 <a 
                     class="page-link" 
-                    href="?page=<%= i %>&search=<%= searchQuery %>">
+                    href="?page=<%= i %>&search=<%= searchQuery %>&category=<%= selectedCategory %>&sort=<%= selectedSort %>">
                     <%= i %>
                 </a>
             </li>
@@ -79,7 +106,7 @@
             <li class="page-item">
                 <a 
                     class="page-link" 
-                    href="?page=<%= currentPage + 1 %>&search=<%= searchQuery %>">
+                    href="?page=<%= currentPage + 1 %>&search=<%= searchQuery %>&category=<%= selectedCategory %>&sort=<%= selectedSort %>">
                     Next
                 </a>
             </li>
