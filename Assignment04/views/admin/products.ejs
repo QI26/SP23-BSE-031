@@ -1,0 +1,115 @@
+<h3><%- pageTitle %></h3>
+
+<a href="/admin/products/create" class="btn btn-info">Create New Product</a>
+
+<!-- Search Form -->
+<form method="GET" action="/admin/products" class="d-flex mb-4 mt-2">
+    <input 
+        type="text" 
+        name="search" 
+        class="form-control me-2" 
+        placeholder="Search by product name..." 
+        value="<%= searchQuery || '' %>"
+    />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<!-- Filter by Category -->
+<form method="GET" action="/admin/products" class="d-flex mb-4 mt-2">
+    <select name="category" class="form-select me-2">
+        <option value="">All Categories</option>
+        <% categories.forEach(category => { %>
+            <option 
+                value="<%= category.title %>" 
+                <%= category.title === selectedCategory ? 'selected' : '' %>>
+                <%= category.title %>
+            </option>
+        <% }) %>
+    </select>
+    <button type="submit" class="btn btn-primary">Filter</button>
+    <!-- Sorting Dropdown -->
+    <select name="sort" class="form-select me-2">
+        <option value="">Sort By</option>
+        <option value="priceLow" <%= selectedSort === 'priceLow' ? 'selected' : '' %>>Price: Low to High</option>
+        <option value="priceHigh" <%= selectedSort === 'priceHigh' ? 'selected' : '' %>>Price: High to Low</option>
+        <option value="asc" <%= selectedSort === 'asc' ? 'selected' : '' %>>Alphabetical: A to Z</option>
+        <option value="desc" <%= selectedSort === 'desc' ? 'selected' : '' %>>Alphabetical: Z to A</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary">SORT</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Picture</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (products.length > 0) { %>
+            <% for (let product of products) { %>
+                <tr>
+                    <td><%= product._id %></td>
+                    <td><%= product.name %></td>
+                    <td><%= product.model %></td>
+                    <td><%= product.price %></td>
+                    <td><%= product.description %></td>
+                    <td><%= product.categoryId.title %></td>
+                    <td>
+                        <img src="<%= product.imageUrls %>" width="100px" />
+                    </td>
+                    <td>
+                        <a href="/admin/products/edit/<%= product._id %>" class="btn btn-warning">Edit</a>
+                        <a href="/admin/products/delete/<%= product._id %>" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            <% } %>
+        <% } else { %>
+            <tr>
+                <td colspan="8" class="text-center">No products found</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<!-- Pagination Controls -->
+<nav aria-label="Pagination">
+    <ul class="pagination">
+        <% if (currentPage > 1) { %>
+            <li class="page-item">
+                <a 
+                    class="page-link" 
+                    href="?page=<%= currentPage - 1 %>&search=<%= searchQuery %>&category=<%= selectedCategory %>&sort=<%= selectedSort %>">
+                    Previous
+                </a>
+            </li>
+        <% } %>
+
+        <% for (let i = 1; i <= totalPages; i++) { %>
+            <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                <a 
+                    class="page-link" 
+                    href="?page=<%= i %>&search=<%= searchQuery %>&category=<%= selectedCategory %>&sort=<%= selectedSort %>">
+                    <%= i %>
+                </a>
+            </li>
+        <% } %>
+
+        <% if (currentPage < totalPages) { %>
+            <li class="page-item">
+                <a 
+                    class="page-link" 
+                    href="?page=<%= currentPage + 1 %>&search=<%= searchQuery %>&category=<%= selectedCategory %>&sort=<%= selectedSort %>">
+                    Next
+                </a>
+            </li>
+        <% } %>
+    </ul>
+</nav>

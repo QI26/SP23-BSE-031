@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/homePageBootStrap.css"> <!-- Custom styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Product Details - <%= product.name %></title>
+</head>
+<body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="<%= product.imageUrls %>" class="card-img-top img-fluid" alt="<%= product.name %>">
+        </div>
+        <div class="col-md-6">
+          <h1><%= product.name %></h1>
+          <p><strong>Model:</strong> <%= product.model %></p>
+          <p><strong>Price:</strong> $<%= product.price %></p>
+          <p><strong>Original Price:</strong> $<%= product.originalPrice %></p>
+          <p><strong>Color:</strong> <%= product.color %></p>
+          <p><strong>Sizes Available:</strong>
+            <ul>
+              <% product.size.forEach(size => { %>
+                <li><%= size %></li>
+              <% }) %>
+            </ul>
+          </p>
+          <p><strong>Barcode:</strong> <%= product.barcode %></p>
+          <p><strong>Availability:</strong> <%= product.availability %></p>
+          <p><strong>Description:</strong> <%= product.description %></p>
+          <p><strong>Category:</strong> <%= product.categoryId.title %></p>
+  
+          <!-- Add more product details as needed -->
+          <div class="mt-4">
+            <form action="/cart/add/<%= product._id %>" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+            <a href="/products" class="btn btn-secondary ml-2">Back to Products</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+  
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Orders</title>
+  <link rel="stylesheet" href="/css/styles.css"> <!-- Add your CSS file -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: white;
+
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+      color: black;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    td {
+      background-color: #fafafa;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Admin - All Orders</h1>
+
+  <% if (orders.length === 0) { %>
+    <p>No orders found.</p>
+  <% } else { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Total Amount</th>
+          <th>Order Status</th>
+          <th>Products</th>
+          <th>Date Placed</th>
+          <th>Actions</th> <!-- Added column for actions -->
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+          <tr>
+            <td><%= order._id %></td>
+            <td>$<%= order.totalAmount %></td>
+            <td><%= order.status %></td>
+            <td>
+              <ul>
+                <% order.products.forEach(product => { %>
+                  <li>
+                    <strong>Quantity:</strong> <%= product.quantity %><br>
+                    <strong>Price:</strong> $<%= product.price %><br>
+                  </li>
+                <% }) %>
+              </ul>
+            </td>
+            <td><%= new Date(order.datePlaced).toLocaleString() %></td>
+            <td>
+              <!-- Cancel Order Button -->
+              <% if (order.status !== 'Cancelled') { %>
+                <form action="/admin/orders/cancel/<%= order._id %>" method="POST">
+                  <button type="submit">Cancel Order</button>
+                </form>
+              <% } else { %>
+                <button disabled>Order Cancelled</button> <!-- Displayed if the order is already cancelled -->
+                <!-- Delete Button -->
+                <form action="/admin/orders/delete/<%= order._id %>" method="POST">
+                  <button type="submit">Delete Order</button>
+                </form>
+              <% } %>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</body>
+
+</html>
