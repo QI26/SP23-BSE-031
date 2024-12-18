@@ -31,7 +31,7 @@
           <p><strong>Description:</strong> <%= product.description %></p>
           <p><strong>Category:</strong> <%= product.categoryId.title %></p>
   
-          <!-- Add more product details as needed -->
+
           <div class="mt-4">
             <form action="/cart/add/<%= product._id %>" method="POST" style="display: inline;">
               <button type="submit" class="btn btn-primary">Add to Cart</button>

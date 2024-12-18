@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Orders</title>
-  <link rel="stylesheet" href="/css/order.css"> <!-- Add your CSS file -->
+  <link rel="stylesheet" href="/css/order.css"> 
 
 </head>
 <body>
@@ -21,7 +21,7 @@
           <th>Order Status</th>
           <th>Products</th>
           <th>Date Placed</th>
-          <th>Actions</th> <!-- Added column for actions -->
+          <th>Actions</th> 
         </tr>
       </thead>
       <tbody>
@@ -48,8 +48,8 @@
                   <button type="submit">Cancel Order</button>
                 </form>
               <% } else { %>
-                <button disabled>Order Cancelled</button> <!-- Displayed if the order is already cancelled -->
-                <!-- Delete Button -->
+                <button disabled>Order Cancelled</button> 
+
                 <form action="/admin/orders/delete/<%= order._id %>" method="POST">
                   <button type="submit">Delete Order</button>
                 </form>

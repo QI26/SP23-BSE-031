@@ -2,7 +2,7 @@
 
 <a href="/admin/products/create" class="btn btn-info">Create New Product</a>
 
-<!-- Search Form -->
+
 <form method="GET" action="/admin/products" class="d-flex mb-4 mt-2">
     <input 
         type="text" 
@@ -14,7 +14,6 @@
     <button type="submit" class="btn btn-primary">Search</button>
 </form>
 
-<!-- Filter by Category -->
 <form method="GET" action="/admin/products" class="d-flex mb-4 mt-2">
     <select name="category" class="form-select me-2">
         <option value="">All Categories</option>
@@ -79,7 +78,6 @@
     </tbody>
 </table>
 
-<!-- Pagination Controls -->
 <nav aria-label="Pagination">
     <ul class="pagination">
         <% if (currentPage > 1) { %>
