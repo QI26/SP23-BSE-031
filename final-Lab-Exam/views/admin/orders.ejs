@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Orders</title>
-  <link rel="stylesheet" href="/css/order.css"> 
-
+  <link rel="stylesheet" href="/css/order.css">
 </head>
 <body>
   <h1>Admin - All Orders</h1>
@@ -17,6 +16,8 @@
       <thead>
         <tr>
           <th>Order ID</th>
+          <th>Customer Name</th>
+          <th>Customer Address</th>
           <th>Total Amount</th>
           <th>Order Status</th>
           <th>Products</th>
@@ -28,27 +29,41 @@
         <% orders.forEach(order => { %>
           <tr>
             <td><%= order._id %></td>
+            <td><%= order.customerId.name %></td> <!-- Display Customer Name -->
+            <td><%= order.shippingAddress %></td>
             <td>$<%= order.totalAmount %></td>
-            <td><%= order.status %></td>
+            <td>
+              <!-- Dropdown for Changing Order Status -->
+              <form action="/admin/orders/update-status/<%= order._id %>" method="POST">
+                <select name="status" onchange="this.form.submit()">
+                  <option value="Pending" <%= order.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+                  <option value="Processing" <%= order.status === 'Processing' ? 'selected' : '' %>>Processing</option>
+                  <option value="Shipped" <%= order.status === 'Shipped' ? 'selected' : '' %>>Shipped</option>
+                  <option value="Delivered" <%= order.status === 'Delivered' ? 'selected' : '' %>>Delivered</option>
+                  <option value="Cancelled" <%= order.status === 'Cancelled' ? 'selected' : '' %>>Cancelled</option>
+                </select>
+              </form>
+            </td>
             <td>
               <ul>
                 <% order.products.forEach(product => { %>
                   <li>
+                    <strong>Name:</strong> <%= product.productId.name %><br>
                     <strong>Quantity:</strong> <%= product.quantity %><br>
                     <strong>Price:</strong> $<%= product.price %><br>
+                    <strong>payment Method:</strong> <%= order.paymentMethod %><br>
                   </li>
                 <% }) %>
               </ul>
             </td>
             <td><%= new Date(order.datePlaced).toLocaleString() %></td>
             <td>
-              <!-- Cancel Order Button -->
               <% if (order.status !== 'Cancelled') { %>
                 <form action="/admin/orders/cancel/<%= order._id %>" method="POST">
                   <button type="submit">Cancel Order</button>
                 </form>
               <% } else { %>
-                <button disabled>Order Cancelled</button> 
+                <button disabled>Order Cancelled</button>
 
                 <form action="/admin/orders/delete/<%= order._id %>" method="POST">
                   <button type="submit">Delete Order</button>
@@ -61,5 +76,4 @@
     </table>
   <% } %>
 </body>
-
 </html>

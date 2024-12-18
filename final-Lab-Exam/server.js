@@ -200,7 +200,7 @@ server.get("/checkout", isAuthenticated, (req, res) => {
 
 // POST: Handle Order Submission
 server.post("/order", isAuthenticated, async (req, res) => {
-  const { address, phoneNumber } = req.body;
+  const { address, phoneNumber, paymentMethod, cardNumber, expiryDate, cvv } = req.body;
   const cart = req.cookies.cart || [];
 
   if (!cart.length) {
@@ -209,6 +209,7 @@ server.post("/order", isAuthenticated, async (req, res) => {
   }
 
   try {
+    // Filter valid cart items
     const validCart = cart.filter(id => mongoose.isValidObjectId(id));
     const productsInCart = await Product.find({ _id: { $in: validCart } });
 
@@ -224,30 +225,53 @@ server.post("/order", isAuthenticated, async (req, res) => {
       };
     });
 
+    // Create the order with the selected payment method
     const newOrder = new Order({
       customerId: req.session.user._id,
       products: orderProducts,
       totalAmount,
       shippingAddress: address,
-      paymentMethod: "Cash on Delivery",
+      paymentMethod: paymentMethod, // This can be "COD" or "Card"
       status: "Pending",
       datePlaced: Date.now()
     });
 
-    await newOrder.save();
-    res.clearCookie("cart");
+    // If payment method is "Card", add card details
+    if (paymentMethod === 'Card') {
+      newOrder.cardDetails = {
+        cardNumber,
+        expiryDate,
+        cvv
+      };
+    }
+
+    await newOrder.save(); // Save the order to the database
+    res.clearCookie("cart"); // Clear the cart cookie
     req.flash("success", "Your order has been placed successfully!");
-    res.redirect("/confirmation");
+    res.redirect("/confirmation"); // Redirect to confirmation page
   } catch (err) {
     console.error("Error placing the order:", err.message);
     req.flash("error", "Something went wrong while processing your order. Please try again.");
-    res.redirect("/cart");
+    res.redirect("/cart"); // In case of error, redirect to cart
   }
 });
 
+
 // GET: Order Confirmation Page
 server.get("/confirmation", (req, res) => {
-  res.render("Confirmation");
+  res.render("confirmation");
+});
+
+server.get('/my-orders/:userId', isAuthenticated, async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const userOrders = await Order.find({ customerId: userId }).sort({ datePlaced: -1 });
+
+    res.render('order', { userOrders });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error retrieving orders');
+  }
 });
 
 // Start Server
