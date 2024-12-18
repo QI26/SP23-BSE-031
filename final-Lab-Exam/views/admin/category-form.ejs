@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categpry Creation form </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/category-form.css">
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+<h4>Add Category</h4>
+
+<form action="/admin/categories/create" method="post">
+    <div class="form-group">
+        <label for="idInput">ID</label>
+        <input name="id" type="text" class="form-control" id="idInput" aria-describedby="idHelp" placeholder="Enter ID" />
+        <small id="idHelp" class="form-text text-muted">Category ID</small>
+    </div>
+    <div class="form-group">
+        <label for="titleInput">Title</label>
+        <input name="title" type="text" class="form-control" id="titleInput" placeholder="Enter Title" />
+        <small id="titleHelp" class="form-text text-muted">Category Title</small>
+    </div>
+    <div class="form-group">
+        <label for="descriptionInput">Description</label>
+        <textarea name="description" class="form-control" id="descriptionInput" placeholder="Enter Description"></textarea>
+        <small id="descriptionHelp" class="form-text text-muted">Category Description</small>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn-primary">Add New Category</button>
+    </div>
+</form>
+

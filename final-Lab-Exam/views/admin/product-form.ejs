@@ -1,0 +1,87 @@
+
+<link rel="stylesheet" href="/css/product-form.css">
+
+
+<h4>Create Product</h4>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="nameInput">Product Name</label>
+        <input name="name" type="text" class="form-control" id="nameInput" placeholder="Enter Product Name" required />
+        <small class="form-text text-muted">Product Name</small>
+    </div>
+    
+    <div class="form-group">
+        <label for="modelInput">Product Model</label>
+        <input name="model" type="text" class="form-control" id="modelInput" placeholder="Enter Product Model" required />
+        <small class="form-text text-muted">Product Model (e.g., BM6780-BLUE)</small>
+    </div>
+    
+    <div class="form-group">
+        <label for="priceInput">Price (PKR)</label>
+        <input name="price" type="number" class="form-control" id="priceInput" placeholder="Enter Price" required />
+        <small class="form-text text-muted">Product Price</small>
+    </div>
+
+    <div class="form-group">
+        <label for="originalPriceInput">Original Price (PKR)</label>
+        <input name="originalPrice" type="number" class="form-control" id="originalPriceInput" placeholder="Enter Original Price" />
+        <small class="form-text text-muted">Product Original Price</small>
+    </div>
+
+    <div class="form-group">
+        <label for="colorInput">Product Color</label>
+        <input name="color" type="text" class="form-control" id="colorInput" placeholder="Enter Product Color" required />
+        <small class="form-text text-muted">Product Color</small>
+    </div>
+
+    <div class="form-group">
+        <label for="sizeInput">Product Sizes</label>
+        <input name="size" type="text" class="form-control" id="sizeInput" placeholder="Enter Sizes (comma-separated)" required />
+        <small class="form-text text-muted">Enter sizes in comma-separated format (e.g., 32, 34, 36)</small>
+    </div>
+
+    <div class="form-group">
+        <label for="barcodeInput">Product Barcode</label>
+        <input name="barcode" type="text" class="form-control" id="barcodeInput" placeholder="Enter Product Barcode" />
+        <small class="form-text text-muted">Product Barcode (Optional)</small>
+    </div>
+
+    <div class="form-group">
+        <label for="availabilityInput">Availability</label>
+        <select name="availability" class="form-control" id="availabilityInput">
+            <option value="In stock" selected>In stock</option>
+            <option value="Out of stock">Out of stock</option>
+            <option value="Pre-order">Pre-order</option>
+        </select>
+        <small class="form-text text-muted">Product Availability</small>
+    </div>
+
+    <div class="form-group">
+        <label for="descriptionInput">Description</label>
+        <textarea name="description" class="form-control" id="descriptionInput" placeholder="Enter Product Description"></textarea>
+        <small class="form-text text-muted">Product Details</small>
+    </div>
+
+    <div class="form-group">
+        <label for="categoryInput">Category</label>
+        <select name="categoryId" class="form-control" id="categoryInput" required>
+            <option value="" disabled selected>Select a Category</option>
+            <% categories.forEach(category => { %>
+                <option value="<%= category._id %>"><%= category.title %></option>
+            <% }) %>
+        </select>
+        <small class="form-text text-muted">Select the product category</small>
+    </div>
+    
+
+    <div class="form-group">
+        <label for="imageUploadInput">Product Images</label>
+        <input name="image" type="file" class="form-control" id="imageUploadInput"  />
+    </div>
+    
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info">Create New Product</button>
+    </div>
+</form>
