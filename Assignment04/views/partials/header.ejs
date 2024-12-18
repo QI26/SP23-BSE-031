@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="/css/homePageBootStrap.css">
+<link rel="stylesheet" href="/css/header.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+
 <header>
     <!-- Marquee Section -->
     <div class="marquee">
@@ -38,9 +42,7 @@
                 <div class="d-flex align-items-center">
                     <!-- Cart Icon -->
                     <a href="/cart" class="nav-icons position-relative" style="text-decoration: none; color: inherit;">
-                        <i class="bi bi-cart" style="font-size: 1.5rem;">
-                            <span class="badge rounded-circle bg-danger" style="position: absolute; top: -5px; right: -5px;">0</span>
-                        </i>
+                        <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
                     </a>
 
                     <!-- User Login/Logout Section -->
@@ -48,8 +50,8 @@
                         <span class="nav-link">Welcome <%= user.name %>,</span>
                         <a href="/logout" class="nav-link">Logout</a>
                     <% } else { %>
-                        <a href="/login" class="nav-link">Login</a> |
-                        <a href="/register" class="nav-link">Register</a>
+                        <a href="/login" class="btn btn-primary mx-2">Login</a> 
+                        <a href="/register" class="btn btn-success mx-2">Register</a>
                     <% } %>
                 </div>
             </div>
@@ -57,66 +59,4 @@
     </nav>
 </header>
 
-<!-- Custom CSS for Navbar Styling -->
-<style>
-    .navbar {
-        background-color: #ffffff;
-        border-bottom: 1px solid #e0e0e0;
-    }
 
-    .navbar .nav-link {
-        font-size: 1.1rem;
-        padding: 12px 25px;
-        transition: all 0.3s ease;
-    }
-
-    .navbar .nav-link:hover {
-        background-color: #f8f9fa;
-        border-radius: 5px;
-    }
-
-    .navbar .navbar-brand img {
-        max-height: 60px;
-        transition: transform 0.3s ease;
-    }
-
-    .navbar .navbar-brand img:hover {
-        transform: scale(1.1);
-    }
-
-    .navbar .dropdown-menu {
-        background-color: #f9f9f9;
-        border-radius: 5px;
-    }
-
-    .navbar .dropdown-item {
-        padding: 10px 20px;
-        font-size: 1rem;
-        transition: background-color 0.3s ease;
-    }
-
-    .navbar .dropdown-item:hover {
-        background-color: #e9ecef;
-    }
-
-    .marquee {
-        background-color: #f8c8c8;
-        font-size: 16px;
-        padding: 8px;
-        text-align: center;
-    }
-
-    .nav-icons i {
-        font-size: 1.8rem;
-    }
-
-    .nav-icons span.badge {
-        background-color: #dc3545;
-        color: white;
-        font-size: 0.8rem;
-        padding: 3px 6px;
-        position: absolute;
-        top: -5px;
-        right: -5px;
-    }
-</style>

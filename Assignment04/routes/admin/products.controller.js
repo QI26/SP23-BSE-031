@@ -158,7 +158,7 @@ router.get("/admin/products/edit/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id); // Fetch product by ID
     const categories = await Category.find(); // Fetch all categories
-    res.render("admin/product-edit-form", { product, categories }); // Pass both product and categories to the view
+    res.render("admin/product-edit-form", { product, categories , layout: "adminlayout"}); // Pass both product and categories to the view
   } catch (err) {
     console.error("Error fetching product or categories:", err);
     res.status(500).send("Error fetching product or categories");
